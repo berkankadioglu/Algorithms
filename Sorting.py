@@ -2,6 +2,9 @@
 from time import time
 
 
+def quick_sort(inp):
+
+    
 def bubble_sort(to_be_sorted):
     if len(to_be_sorted) < 2:
         return to_be_sorted
@@ -15,41 +18,43 @@ def bubble_sort(to_be_sorted):
 
     return to_be_sorted
 
+def merge_sorted_lists(left, right):
+    if not left:
+        return right
+    if not right:
+        return left
 
-def merge(left, right):
-    temp = []
+    pl = 0
+    pr = 0
+    merged = []
+    length = len(left) + len(right)
 
-    while left and right:
-        if left[0] < right[0]:
-            temp.append(left[0])
-            del left[0]
+    while len(merged) < length:
+        if left[pl] <= right[pr]:
+            merged.append(left[pl])
+            pl += 1
         else:
-            temp.append(right[0])
-            del right[0]
+            merged.append(right[pr])
+            pr += 1
 
-    if left:
-        temp += left
-        return temp
+        if pl == len(left):
+            merged += right[pr:]
+            return merged
+        if pr == len(right):
+            merged += left[pl:]
 
-    temp += right
-    return temp
+    return merged
 
+def merge_sort(inp):
 
-def merge_sort(to_be_sorted):
+    length = len(inp)
 
-    if len(to_be_sorted) < 2:
-        return to_be_sorted
+    if length <= 1:
+        return inp
 
-    mid = len(to_be_sorted) // 2
+    left, right = inp[:length//2], inp[length//2:]
 
-    left = to_be_sorted[:mid]
-    right = to_be_sorted[mid:]
-
-    sorted_left = merge_sort(to_be_sorted=left)
-    sorted_right = merge_sort(to_be_sorted=right)
-
-    return merge(left=sorted_left, right=sorted_right)
-
+    return merge_sorted_lists(merge_sort(left), merge_sort(right))
 
 def insertion_sort(to_be_sorted):
     """
@@ -129,7 +134,7 @@ if __name__ == '__main__':
     for to_be_sorted in list_to_sort:
         print('to_be_sorted:', to_be_sorted)
         t = time()
-        sorted_version = shell_sort(to_be_sorted=to_be_sorted)
+        sorted_version = merge_sort(to_be_sorted)
         t = time() - t
 
         print('time:', t)
