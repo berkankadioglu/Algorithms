@@ -3,7 +3,40 @@ from time import time
 
 
 def quick_sort(inp):
+    quick_sort_helper(inp, 0, len(inp)-1)
+    return inp
 
+def quick_sort_helper(inp, left, right):
+    if not left < right:
+        return
+    
+    split_point = get_split_point(inp, left, right)
+    
+    quick_sort_helper(inp, left, split_point-1)
+    quick_sort_helper(inp, split_point+1, right)
+
+def get_split_point(inp, left, right):
+    value = inp[left]
+
+    pl = left + 1
+    pr = right
+
+    while True:
+        while pl <= pr and inp[pl] <= value:
+            pl += 1
+        while pl <= pr and  inp[pr] >= value:
+            pr -= 1
+
+        if pr < pl:
+            inp[left] = inp[pr]
+            inp[pr] = value
+            break
+        else:
+            temp = inp[pl]
+            inp[pl] = inp[pr]
+            inp[pr] = temp
+
+    return pr
     
 def bubble_sort(to_be_sorted):
     if len(to_be_sorted) < 2:
@@ -134,7 +167,7 @@ if __name__ == '__main__':
     for to_be_sorted in list_to_sort:
         print('to_be_sorted:', to_be_sorted)
         t = time()
-        sorted_version = merge_sort(to_be_sorted)
+        sorted_version = quick_sort(to_be_sorted)
         t = time() - t
 
         print('time:', t)
