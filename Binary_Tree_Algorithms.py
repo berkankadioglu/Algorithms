@@ -5,7 +5,6 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-
 def preorder_traversal_recursive(root):
 
     out = [root.val]
@@ -16,7 +15,6 @@ def preorder_traversal_recursive(root):
         out += (preorder_traversal_recursive(root.right))
 
     return out
-
 
 def inorder_traversal_recursive(root):
 
@@ -29,7 +27,6 @@ def inorder_traversal_recursive(root):
 
     return out
 
-
 def postorder_traversal_recursive(root):
 
     out = []
@@ -41,12 +38,8 @@ def postorder_traversal_recursive(root):
 
     return out
 
-
 def breadth_first_search(root, visited=set()):
     queue = []
-
-
-
 
 def last_level(root):
     """

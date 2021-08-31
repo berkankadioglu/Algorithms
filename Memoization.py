@@ -10,7 +10,6 @@ def memoize(f):
 
     return helper
 
-
 @memoize
 def lin_comb(x, weights):
     assert len(weights) == 4
@@ -45,7 +44,6 @@ def weight(x):
     return {'left': left, 'right': right}
 
 
-
 if __name__ == '__main__':
     """
     Our exercise is an old riddle, going back to 1612. The French Jesuit Claude-Gaspar Bachet phrased it. We have to weigh quantites (e.g. sugar or flour) from 1 to 40 pounds. What is the least number of weights that can be used on a balance scale to way any of these quantities.
@@ -67,6 +65,3 @@ if __name__ == '__main__':
     for w in to_be_weighted:
         print(weight(w))
     print(time() - t0, 'seconds passed in the second run')
-
-
-

@@ -40,7 +40,6 @@ def interpolation_search(to_be_searched, searching_for):
 
 
 if __name__ == '__main__':
-
     list_to_search = [[], [1], [11, 11], [1, 2, 3], [3, 2, 1], [1, 7, 3, 6, 4, 5, -2],
                       [0, 2, 4, 1, 3, 5, 99, 13, 45, 56, 77, 34, 121, 0, 2, 11134, 1]]
 

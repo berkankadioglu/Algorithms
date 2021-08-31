@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 class Graph:
     """
     For simplicity, assume connected graph ( each node is accessible by each other note )

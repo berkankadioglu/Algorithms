@@ -110,7 +110,6 @@ def insertion_sort(to_be_sorted):
 
     return to_be_sorted
 
-
 def shell_sort(to_be_sorted):
     """
     Subquadratic
@@ -136,7 +135,6 @@ def shell_sort(to_be_sorted):
         gap //= 2
 
     return to_be_sorted
-
 
 def selection_sort(to_be_sorted):
     """

@@ -63,17 +63,7 @@ def exercise4(n):
     """
 
 
-
-
 if __name__ == '__main__':
     print(exercise3(1))
     print(exercise3(2))
     print(exercise3(3))
-
-
-
-
-
-
-
-
